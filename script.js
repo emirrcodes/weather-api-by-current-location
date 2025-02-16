@@ -1,4 +1,4 @@
-import getCityNameByLocation from "./location_script.js";
+import { WEATHER_API_KEY } from "./config.js";
 
 document.addEventListener("DOMContentLoaded", async function (){
     const cityNameByLocation = await getCityNameByLocation();
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", async function (){
     }
 
     async function get_weather(city) {
-        const API_KEY = import.meta.env.VITE_OPENWEATHER_API_KEY;
+        const API_KEY = WEATHER_API_KEY;
 
         axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`)
             .then(response => {
