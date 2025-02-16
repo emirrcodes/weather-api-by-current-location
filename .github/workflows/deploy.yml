@@ -1,0 +1,31 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main  # Sadece main branch'e push yapıldığında çalıştır
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Create .env file  # API Key’i build sırasında ekle
+        run: |
+          echo "VITE_OPENWEATHER_API_KEY=${{ secrets.W_API_KEY }}" >> .env
+          echo "VITE_LOCATIONIQ_API_KEY=${{ secrets.L_API_KEY }}" >> .env
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist  # Eğer build sonucu dist klasörüne gidiyorsa

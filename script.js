@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", async function (){
     }
 
     async function get_weather(city) {
-        const API_KEY = "6e283abad5500a582b5374809016d044"; 
+        const API_KEY = import.meta.env.VITE_OPENWEATHER_API_KEY;
 
         axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`)
             .then(response => {
