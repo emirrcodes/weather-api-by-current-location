@@ -13,11 +13,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Create .env file  # API Key’i build sırasında ekle
-        run: |
-          echo "export const LOCATIONIQ_API_KEY = '${{ secrets.L_API_KEY }}';" > config.js
-          echo "export const WEATHER_API_KEY = '${{ secrets.W_API_KEY }}';" >> config.js
-
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
