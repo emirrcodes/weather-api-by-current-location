@@ -32,6 +32,8 @@ document.addEventListener("DOMContentLoaded", async function (){
     }
     
     get_weather(cityName);
+
+    
 });
 
 //aea
