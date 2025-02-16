@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", async function (){
             .then(response => {
                 const hava_durumu = response.data.weather[0].description;
                 const temp = response.data.main.temp;
+                console.log("Tüm data: ", response.data);
                 console.log("City: ", response.data.name);
                 // console.log(response.data.main.name); invalid
                 console.log("Hava Durumu: ", hava_durumu);
