@@ -22,6 +22,7 @@ function getCity(coordinates) {
         const [lat, lng] = coordinates;
         const xhr = new XMLHttpRequest();
         const L_API_KEY = import.meta.env.VITE_LOCATIONIQ_API_KEY;
+        console.log("API KEY:", L_API_KEY);
         const url = `https://us1.locationiq.com/v1/reverse.php?key=${L_API_KEY}&lat=${lat}&lon=${lng}&format=json`;
 
         xhr.open("GET", url, true);
