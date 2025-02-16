@@ -1,3 +1,5 @@
+import getCityNameByLocation from "./location_script.js";
+
 document.addEventListener("DOMContentLoaded", async function (){
     const cityNameByLocation = await getCityNameByLocation();
     const cityName = cityNameByLocation; //no need to use ?.value?.trim()
@@ -30,8 +32,4 @@ document.addEventListener("DOMContentLoaded", async function (){
     }
     
     get_weather(cityName);
-
-
 });
-
-//aea
