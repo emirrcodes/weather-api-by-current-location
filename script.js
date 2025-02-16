@@ -1,4 +1,4 @@
-// import getCityNameByLocation from "./location_script.js";
+import getCityNameByLocation from "./location_script.js";
 
 document.addEventListener("DOMContentLoaded", async function (){
     const cityNameByLocation = await getCityNameByLocation();
